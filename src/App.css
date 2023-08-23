@@ -1,0 +1,43 @@
+body {
+  font-size: 12px;
+}
+header {
+  margin: auto;
+  margin-bottom: 100px;
+  height: 110px;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header > div {
+  width: 424px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+header button {
+  border: 1px solid #2db0ba;
+  border-radius: 5px;
+  width: 110px;
+  height: 25px;
+  font-size: 12px;
+}
+.bleu {
+  background-color: #2db0ba;
+}
+header img {
+  height: 45px;
+  width: 104px;
+}
+.hero-section-container {
+  margin: auto;
+  border: 1px solid rebeccapurple;
+  display: flex;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+.hero-section-container img {
+  width: 200px;
+  height: 200px;
+}
