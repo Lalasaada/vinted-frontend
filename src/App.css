@@ -87,3 +87,37 @@ article {
 h1 {
   font-size: 16px;
 }
+
+/* PAGE SIGNUP */
+.form-container {
+  margin: auto;
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: #eaedee;
+  border-bottom: 1px solid #fcced3;
+}
+.submit {
+  background-color: #2db0ba;
+  width: 270px;
+  height: 45px;
+  border-radius: 10px;
+  color: white;
+}
+.form-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
