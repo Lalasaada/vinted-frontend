@@ -6,6 +6,7 @@ import axios from "axios";
 const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,10 +28,10 @@ const Home = () => {
   ) : (
     <div>
       <section className="hero-section-container">
-        {data.offers.map((elem) => {
+        {data.offers.map((elem, index) => {
           return (
             <div>
-              <p key={elem._id}>{elem.product_name}</p>
+              <p key={index}>{elem.product_name}</p>
               <img src={elem.product_pictures.secure_url} alt="" />
             </div>
           );
