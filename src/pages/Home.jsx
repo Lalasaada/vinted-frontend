@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import data from "../assets/offers.json";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
