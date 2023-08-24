@@ -1,7 +1,13 @@
 body {
   font-size: 12px;
+  background-color: #eaedee;
 }
+
+/* HEADER */
 header {
+  background-color: white;
+}
+header > div {
   margin: auto;
   margin-bottom: 100px;
   height: 110px;
@@ -10,7 +16,7 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-header > div {
+.button {
   width: 424px;
   height: 25px;
   display: flex;
@@ -30,14 +36,54 @@ header img {
   height: 45px;
   width: 104px;
 }
+/* MAIN */
+article {
+  padding: 0 6px 16px;
+  width: 235px;
+}
 .hero-section-container {
   margin: auto;
   border: 1px solid rebeccapurple;
   display: flex;
+  justify-content: center;
   max-width: 1200px;
   flex-wrap: wrap;
 }
 .hero-section-container img {
-  width: 200px;
-  height: 200px;
+  width: 235px;
+  height: 360px;
+  object-fit: cover;
+}
+.avatar img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/* OFFER */
+.container-offer {
+  margin: auto;
+  border: 1px solid turquoise;
+  width: 1090px;
+  display: flex;
+  justify-content: space-between;
+}
+.container-offer img {
+  width: 450px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer-info {
+  width: 400px;
+  background-color: white;
+  padding: 40px;
+}
+
+.description img {
+  width: 50px;
+  height: 50px;
+}
+h1 {
+  font-size: 16px;
 }

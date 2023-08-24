@@ -25,20 +25,40 @@ const Home = () => {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <div>
-      <section className="hero-section-container">
-        {data.offers.map((elem, index) => {
-          return (
-            <div>
-              <p key={index}>{elem.product_name}</p>
-              <img src={elem.product_pictures.secure_url} alt="" />
-            </div>
-          );
-        })}
-      </section>
-
-      <Link to="/offer">Naviguer vers la page offer</Link>
-    </div>
+    <section className="hero-section-container">
+      {data.offers.map((elem, index) => {
+        return (
+          <Link key={elem._id} to={`/offer/${elem._id}`}>
+            <article key={index}>
+              <div className="avatar">
+                {elem.owner.account.avatar && (
+                  //avatar de l'owner
+                  <img
+                    src={elem.owner.account.avatar.secure_url}
+                    alt={elem.pruduct_name}
+                  />
+                )}
+                {/* nom du owner */}
+                <span>{elem.owner.account.username}</span>
+              </div>
+              {/* <p>{elem.product_name}</p>  == nom du produit mais pas besoin*/}
+              {/* image du produit */}
+              <img src={elem.product_image.url} alt="" />
+              <p>{elem.product_price} €</p>
+              {elem.product_details.map((detail, index) => {
+                if (detail.MARQUE) {
+                  return <p key={index}>{detail.MARQUE}</p>;
+                } else if (detail.TAILLE) {
+                  return <p>{detail.TAILLE}</p>;
+                } else {
+                  return null;
+                }
+              })}
+            </article>
+          </Link>
+        );
+      })}
+    </section>
   );
 };
 export default Home;
