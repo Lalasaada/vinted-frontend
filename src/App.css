@@ -28,6 +28,7 @@ header button {
   width: 110px;
   height: 25px;
   font-size: 12px;
+  background-color: white;
 }
 .bleu {
   background-color: #2db0ba;
