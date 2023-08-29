@@ -1,6 +1,7 @@
 body {
   font-size: 12px;
   background-color: #eaedee;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* HEADER */
@@ -121,4 +122,28 @@ input {
 .form-container h1 {
   margin-bottom: 20px;
   font-size: 24px;
+}
+
+/* PAGE PUBLISH */
+
+.file-select {
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+  margin: 20px 0;
+  padding: 24px;
+}
+
+.text-input-section {
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+  margin: 20px 0;
+}
+
+.text-input {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+h2 {
+  font-size: 20px;
 }

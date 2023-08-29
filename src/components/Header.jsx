@@ -10,13 +10,12 @@ const Header = ({ handleToken, userToken }) => {
         </Link>
         {!userToken ? (
           <>
-            {" "}
             <Link to="/signup">
               <button>S'inscrire</button>
             </Link>
             <Link to="/login">
               <button>Se connecter</button>
-            </Link>{" "}
+            </Link>
           </>
         ) : (
           <button
@@ -27,9 +26,19 @@ const Header = ({ handleToken, userToken }) => {
             Deconnexion
           </button>
         )}
-        <div className="button">
-          <button className="bleu">Vends tes articles</button>
-        </div>
+        {!userToken ? (
+          <Link to="/login">
+            <div className="button">
+              <button className="bleu">Vends tes articles</button>
+            </div>
+          </Link>
+        ) : (
+          <Link to="/publish">
+            <div className="button">
+              <button className="bleu">Vends tes articles</button>
+            </div>
+          </Link>
+        )}
       </div>
     </header>
   );
