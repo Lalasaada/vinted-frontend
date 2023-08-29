@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 const Offer = () => {
   const [data, setData] = useState([]);
@@ -48,13 +47,9 @@ const Offer = () => {
           <span>{data.owner.account.username}</span>
         </div>
 
-        {/* {userToken ? (
-          <Link to={`/payment/${id}`}>
-            <button>Acheter</button>
-          </Link>
-        ) : (
-          <span>redirection vers la page de connexion</span>
-        )} */}
+        <Link to="/payment">
+          <button>Acheter</button>
+        </Link>
       </section>
     </div>
   );
