@@ -20,8 +20,8 @@ const CheckoutForm = () => {
       " https://lereacteur-vinted-api.herokuapp.com/payment",
       {
         stripeToken,
-     title: {product_name}
-     amount: {product_price}
+        title: product_name,
+        amount: product_price,
       }
     );
     console.log(response.data);
