@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Publish = ({ handleToken }) => {
+const Publish = ({ token }) => {
   const [image, setImage] = useState();
 
   const [title, setTitle] = useState("");
@@ -12,13 +13,14 @@ const Publish = ({ handleToken }) => {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState(0);
-  const [exchange, setExchange] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const formData = newFormData();
+      const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("brand", brand);
@@ -39,6 +41,8 @@ const Publish = ({ handleToken }) => {
           },
         }
       );
+      console.log(response.data);
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
@@ -48,14 +52,18 @@ const Publish = ({ handleToken }) => {
     <form onSubmit={handleSubmit} className="hero-section-container">
       <h2>Vends ton article</h2>
       <div className="file-select">
+        <label htmlFor="filePicker">Choisissez une image</label>
         <input
+          style={{ display: "none" }}
+          id="filePicker"
           type="file"
-          value={image}
           onChange={(event) => {
             setImage(event.target.files[0]);
           }}
         />
+        {image && <img src={URL.createObjectURL(image)} alt="" />}
       </div>
+
       <div className="text-input-section">
         <div className="text-input">
           <h3>Titre</h3>
@@ -140,13 +148,6 @@ const Publish = ({ handleToken }) => {
             setPrice(event.target.value);
           }}
         />
-        <input
-          type="checkbox"
-          onChange={() => {
-            setExchange(!exchange);
-          }}
-        />
-        <span>Je suis intéressée par les échanges</span>
       </div>
       <input className="submit" type="submit" value="Ajouter" />
     </form>

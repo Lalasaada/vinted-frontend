@@ -65,7 +65,7 @@ article {
 /* OFFER */
 .container-offer {
   margin: auto;
-  border: 1px solid turquoise;
+
   width: 1090px;
   display: flex;
   justify-content: space-between;
@@ -147,3 +147,5 @@ input {
 h2 {
   font-size: 20px;
 }
+
+/* CHECKOUT FORM */
