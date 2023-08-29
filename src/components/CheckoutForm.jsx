@@ -34,6 +34,17 @@ const CheckoutForm = () => {
     <>
       {!completed ? (
         <form className="container-offer" onSubmit={handleSubmit}>
+          <h4>Résumé de la commande</h4>
+          <div>
+            <p>Commande</p>
+            <p>Frais protection acheteurs</p>
+            <span>O,40 €</span>
+            <p>Frais de port</p>
+            <span>0,80 €</span>
+            <h3>TOTAL</h3>
+            <span>{amount}</span>
+          </div>
+
           <CardElement />
           <button type="submit">Valider</button>
         </form>

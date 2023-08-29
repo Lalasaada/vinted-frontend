@@ -1,20 +1,34 @@
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "../components/CheckoutForm";
-import { useLocation } from "react-router-dom";
-
-const stripePromise = loadStripe(
-  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
-);
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const Payment = () => {
-  const location = useLocation();
-  const { title, price } = location.state;
-  return (
-    <Elements stripe={stripePromise}>
-      <CheckoutForm product_name={title} product_price={price} />
-    </Elements>
+  const [productInfo, setProductInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        console.log(response.data);
+        setProductInfo(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, [id]);
+  return isLoading ? (
+    <span>En cours de chargement</span>
+  ) : (
+    <section>
+      <div>
+        <h2>Résumé de la commande</h2>
+        <p>Prix de l'article : {productInfo.product_price} €</p>
+      </div>
+    </section>
   );
 };
-
 export default Payment;
